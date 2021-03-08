@@ -1,65 +1,66 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import Section from '../components/Section';
+import { motion } from 'framer-motion';
+import { useRouter } from 'next/router';
+import ParticlesBG from '../components/ParticlesBG';
 
 export default function Home() {
+  const router = useRouter();
+
+  function handleClick(e) {
+    e.preventDefault();
+    router.push('/' + document.getElementById('query').value);
+  }
+
+  const variants = {
+    visible: { scale: 1 },
+    hidden: { scale: 0 },
+  };
+
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+    <Section>
+      <div className='flex flex-col items-center justify-between font-bold relaitve md:flex-row dark:text-primary text-primary-dark'>
+        <ParticlesBG className='absolute top-0 left-0 h-full' />
+        <motion.p
+          initial={'hidden'}
+          animate={'visible'}
+          variants={variants}
+          transition={{ ease: 'linear', duration: 0.2 }}
+          className='w-full mb-16 text-6xl leading-tight text-center md:w-1/2 md:text-8xl md:text-left md:mb-0'
         >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
-  )
+          Get daily weather forecasts
+        </motion.p>
+        <div className='relative'>
+          <motion.div
+            initial={'hidden'}
+            animate={'visible'}
+            variants={variants}
+            transition={{ ease: 'linear', duration: 0.2, delay: 0.1 }}
+            className='flex flex-col items-center justify-center'
+          >
+            <span className='text-4xl text-center md:text-6xl'>
+              Search for your location
+            </span>
+            <div className='flex flex-col items-center justify-center my-4 rounded md:flex-row md:my-8 dark:bg-primary bg-primary-dark dark:text-primary-dark text-primary'>
+              <form onSubmit={handleClick}>
+                <input
+                  type='text'
+                  className='p-2 rounded md:p-4 focus:outline-none'
+                  id='query'
+                  placeholder='e.g. London or London,UK'
+                  autoComplete='off'
+                  required
+                />
+                <button
+                  type='submit'
+                  className='h-full p-2 font-semibold bg-pink-700 rounded-r md:p-4 text-primary'
+                >
+                  Search
+                </button>
+              </form>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </Section>
+  );
 }
