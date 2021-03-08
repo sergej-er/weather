@@ -40,7 +40,7 @@ export default function Home() {
             <span className='text-4xl text-center md:text-6xl'>
               Search for your location
             </span>
-            <div className='flex flex-col items-center justify-center my-4 rounded md:flex-row md:my-8 dark:bg-primary bg-primary-dark dark:text-primary-dark text-primary'>
+            <div className='flex flex-col items-center justify-center my-4 rounded md:flex-row md:my-8 dark:bg-primary bg-primary-dark text-primary-dark '>
               <form onSubmit={handleClick}>
                 <input
                   type='text'
