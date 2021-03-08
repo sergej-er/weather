@@ -2,16 +2,7 @@ import React from 'react';
 import { Line } from 'react-chartjs-2';
 import _ from 'lodash';
 
-export default function WeatherChart() {
-  const forecast = [
-    { date: '2021-03-04', min: 2, max: 6 },
-    { date: '2021-03-05', min: -2, max: 6 },
-    { date: '2021-03-06', min: -1, max: 5 },
-    { date: '2021-03-07', min: -2, max: 4 },
-    { date: '2021-03-08', min: -1, max: 5 },
-    { date: '2021-03-09', min: -2, max: 7 },
-  ];
-
+export default function WeatherChart({ forecast }) {
   function getWeekday(date) {
     return new Date(date).toLocaleDateString('en-US', {
       weekday: 'short',

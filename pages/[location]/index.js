@@ -11,7 +11,7 @@ export default function Weather({ city, today, forecast }) {
       {forecast ? (
         <Section>
           <WeatherCard today={today} city={city} />
-          <WeatherChart />
+          <WeatherChart forecast={forecast} />
         </Section>
       ) : (
         <NotFound />
