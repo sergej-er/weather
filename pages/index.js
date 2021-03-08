@@ -44,7 +44,7 @@ export default function Home() {
               <form onSubmit={handleClick}>
                 <input
                   type='text'
-                  className='p-2 rounded md:p-4 focus:outline-none'
+                  className='w-full p-2 rounded md:p-4 focus:outline-none md:w-auto'
                   id='query'
                   placeholder='e.g. London or London,UK'
                   autoComplete='off'
@@ -52,7 +52,7 @@ export default function Home() {
                 />
                 <button
                   type='submit'
-                  className='h-full p-2 font-semibold bg-pink-700 rounded-r md:p-4 text-primary'
+                  className='w-full h-full p-2 font-semibold bg-pink-700 rounded-r md:p-4 text-primary md:w-auto'
                 >
                   Search
                 </button>
