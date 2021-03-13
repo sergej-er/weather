@@ -1,6 +1,6 @@
 # Overview
 
-This project was created with [Next.js](https://nextjs.org) and [Tailwind CSS](https://tailwindcss.com).
+This project was created with [Next.js](https://nextjs.org), [Tailwind CSS](https://tailwindcss.com) and [OpenWeather API](https://openweathermap.org/).
 
 # Demo
 
